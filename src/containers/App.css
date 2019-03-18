@@ -1,1 +1,13 @@
 
+html{
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Chivo', sans-serif;
+  }
+
+footer{
+    margin-bottom: -15px;
+}

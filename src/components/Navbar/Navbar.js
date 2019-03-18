@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 
 const navbar = (props) => {
     return (
-        <div className={styles.navbarFixed}>
+        <div id={styles.navbarFixed}className='navbar-fixed'>
             <nav id={styles.navBar} className="transparent z-depth-0">
                 <div className="container nav-wrapper">
                     <div id={styles.headerName} className="brand-logo">Noah Anderson</div>
