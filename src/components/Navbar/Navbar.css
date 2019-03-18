@@ -1,0 +1,12 @@
+#headerName{
+    font-size: 20px;
+}
+.navbarFixed {
+    position: absolute;
+    background: blue;
+    /* z-index:999999999; */
+}
+
+#navBar{
+    border-bottom: 1px solid;
+}
