@@ -2,8 +2,7 @@
     font-size: 20px;
 }
 .navbarFixed {
-    /* position: absolute; */
-    background: blue;
+    position: relative;
     /* z-index:999999999; */
 }
 
