@@ -1,0 +1,10 @@
+#TitleText{
+    margin: -15px;
+}
+
+#headerImage{
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/connectwork.png");
+}
+
