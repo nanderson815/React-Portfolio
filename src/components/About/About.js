@@ -36,17 +36,19 @@ class About extends Component {
                         </p>
                             </div>
                         </div>
-                        <div className="col s12 m6 offset-m2">
+                        <div className="col s12 m7 offset-m1">
                             <div className="row">
                                 <h4 id="skillsTxt" className="center">Technical Skills</h4>
                             </div>
                             <div className="row">
-                                <Technical />
-                                <Technical />
-                                <Technical />
-                                <Technical />
-                                <Technical />
-                                <Technical />
+                                {this.props.tech.map((tech) => {
+                                    return (
+                                        <Technical
+                                            tech={tech}
+                                        />
+                                    )
+                                })
+                                }
 
                             </div>
                         </div>

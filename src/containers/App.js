@@ -13,6 +13,24 @@ class App extends Component {
         id: '2', icon: 'group', title: 'Team Oriented', desc: 'I have extensive experience working in groups to deliver the best possible service and results for every stakeholder.' },
       {
         id: '3', icon: 'settings', title: 'Results Driven', desc: 'No matter what the task, I ensure that it is completed to the best of my ability.' },
+    ],
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "jQuery",
+      "Node",
+      "Express",
+      "React",
+      "SQL",
+      "Firebase",
+      "MongoDB",
+      "Photoshop",
+      "Illustrator",
+      "Wordpress",
+      "Git",
+      "Bootsrap",
+      "Materialize"
     ]
   };
 
@@ -30,7 +48,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header scroll={this.state.isTop} />
-        <About skills={this.state.skills}/>
+        <About 
+        skills={this.state.skills}
+        tech={this.state.tech}
+        />
 
       </div>
     );
