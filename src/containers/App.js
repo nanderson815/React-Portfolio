@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from '../components/Header/Header';
 import About from '../components/About/About';
+import Projects from '../components/Projects/Projects';
 
 class App extends Component {
   state = {
@@ -52,6 +53,7 @@ class App extends Component {
         skills={this.state.skills}
         tech={this.state.tech}
         />
+        <Projects />
 
       </div>
     );

@@ -26,7 +26,7 @@ const navbar = (props) => {
                     </div>
                 </li>
                 <li><a className="waves-effect" href="#About_skillsCont__2uhD_">About</a></li>
-                <li><a className="waves-effect" href="#projectsCont">Projects</a></li>
+                <li><a className="waves-effect" href="#Projects_projectsCont__W1Q8g">Projects</a></li>
                 <li><a className="waves-effect" href="#contactCont">Contact</a></li>
                 <li>
 
@@ -43,7 +43,7 @@ const navbar = (props) => {
                         <a href="#!" data-target="mobile-menu" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
                             <li><a href="#About_skillsCont__2uhD_">About</a></li>
-                            <li><a href="#projectsCont">Projects</a></li>
+                            <li><a href="#Projects_projectsCont__W1Q8g">Projects</a></li>
                             <li><a href="#contactCont">Contact</a></li>
                         </ul>
                     </div>
