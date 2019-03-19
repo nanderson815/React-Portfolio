@@ -2,11 +2,13 @@
     margin: -15px;
 }
 
-#headerImage{
-    height: 100vh;
-}
 
 #background {
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/connectwork.png");
     overflow: hidden;
+    height: 100vh;
+}
+
+#headerImage{
+    height: 100vh;
 }
