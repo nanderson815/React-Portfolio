@@ -17,9 +17,9 @@ const navbar = (props) => {
                 <li>
                     <div className="user-view">
                         <div className="background">
-                            <img alt="Portfolio Background" className="responsive-img" src="assets/images/portfolio-background.jpg" />
+                            <img alt="Portfolio Background" className="responsive-img" src="./images/portfolio-background.jpg" />
                         </div>
-                        <a href="#user"><img alt="Noah Anderson" className="circle" src="assets/images/professionalPhoto2.jpg" /></a>
+                        <a href="#user"><img alt="Noah Anderson" className="circle" src="./images/professionalPhoto2.jpg" /></a>
 
                         <a href="#name"><span className="white-text name">Noah Anderson</span></a>
                         <a href="mailto:NAnderson815@gmail.com"><span className="white-text email">Nanderson815@gmail.com</span></a>
