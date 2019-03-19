@@ -11,3 +11,7 @@ body {
 footer{
     margin-bottom: -15px;
 }
+
+.container{
+    min-width: 85% !important;
+}

@@ -1,3 +1,12 @@
 #skillsCont{
     min-height: 100vh;
 }
+
+.skillIcons{
+    font-size: 80px;
+    color: #0d47a1;
+}
+
+#skillsHeader {
+    margin-top: 50px;
+}

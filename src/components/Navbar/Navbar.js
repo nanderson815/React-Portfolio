@@ -25,7 +25,7 @@ const navbar = (props) => {
                         <a href="mailto:NAnderson815@gmail.com"><span className="white-text email">Nanderson815@gmail.com</span></a>
                     </div>
                 </li>
-                <li><a className="waves-effect" href="#skillsCont">About</a></li>
+                <li><a className="waves-effect" href="#About_skillsCont__2uhD_">About</a></li>
                 <li><a className="waves-effect" href="#projectsCont">Projects</a></li>
                 <li><a className="waves-effect" href="#contactCont">Contact</a></li>
                 <li>
@@ -42,7 +42,7 @@ const navbar = (props) => {
                         <div id={styles.headerName} className="brand-logo">Noah Anderson</div>
                         <a href="#!" data-target="mobile-menu" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
-                            <li><a href="#skillsCont">About</a></li>
+                            <li><a href="#About_skillsCont__2uhD_">About</a></li>
                             <li><a href="#projectsCont">Projects</a></li>
                             <li><a href="#contactCont">Contact</a></li>
                         </ul>
