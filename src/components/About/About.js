@@ -28,12 +28,15 @@ class About extends Component {
                     <div id="aboutMeRow" class="row">
                         <div class="col s12 m4">
                             <div class="center">
-                                <img alt="Noah Anderson" id={styles.bioImage} class={styles.shadowed} src="./images/professionalPhoto2.png" />
                                 <h4>About Me</h4>
+                                <img alt="Noah Anderson" id={styles.bioImage} class={styles.shadowed} src="./images/professionalPhoto2.png" />
                                 <p class="light center">Full-Stack web developer and financial professional in Atlanta.
                                     I am passionate about using technology to solve financial problems.
                         </p>
                             </div>
+                        </div>
+                        <div class="col s12 m8">
+                            <h4 id="skillsTxt" class="center">Technical Skills</h4>
                         </div>
                     </div>
                 </div>
