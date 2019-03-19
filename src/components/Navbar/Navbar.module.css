@@ -1,4 +1,4 @@
-#headerName{
+#headerName {
     font-size: 20px;
 }
 .navbarFixed {
@@ -6,6 +6,11 @@
     /* z-index:999999999; */
 }
 
-#navBar{
+#navBar {
     border-bottom: 1px solid;
+}
+
+.fab {
+  color:#0d47a1; 
+  margin-right: 10px;
 }

@@ -3,9 +3,10 @@ import styles from './Header.module.css';
 import Navbar from '../Navbar/Navbar';
 
 const header = (props) => {
+
     return (
         <div id={styles.background}>
-            <Navbar />
+            <Navbar scroll={props.scroll}/>
             <div id={styles.headerImage} className="valign-wrapper">
                 <div className="row container center">
                     <div>
