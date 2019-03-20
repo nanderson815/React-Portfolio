@@ -8,7 +8,7 @@ const project = (props) => {
             <div className="row">
                 <div className="col s12 m6">
                     <h4>{props.title}</h4>
-                    <h5>{props.tech}</h5>
+                    <h6>{props.tech}</h6>
                     <p>{props.desc}</p>
                     <a href={props.github} className={[styles.button, "waves-effect waves-light btn blue darken-4"].join(' ')}>Github</a>
                     <a href={props.demo} className={[styles.button, "waves-effect waves-light btn blue darken-4"].join(' ')}>Demo</a>

@@ -20,6 +20,24 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/Pail---Budget-Application"
                         demo="https://fathomless-stream-39221.herokuapp.com/"
                         img="./images/pail-screenshot.PNG" />
+                    <Project 
+                        title="AI Marketplace"
+                        tech="HTML | CSS | JavaScript | Node.js | Express.js | jQuery | Handlebars | Materialize | Heroku | SQL | Sequelize | IBM Watson"
+                        desc="A user-driven marketplace application that uses IBM Watson to title and tag listings automatically. 
+                        AI Marketplace ensures listing are input correctly by integrating AI image recognition to the product upload process."
+                        github="https://github.com/nanderson815/AI-Marketplace"
+                        demo="https://serene-coast-26233.herokuapp.com/"
+                        img="./images/ai-marketplace.PNG" />
+                        <Project 
+                        title="InstaPicker"
+                        tech="HTML | CSS | JavaScript | Node.js | Express.js | jQuery | Materialize | Puppeteer | Cheerio | Google Cloud Platform"
+                        desc="A node application for picking winners of Instagram Comment Contests.
+                        Automates the manual process of selecting a contest winner by using a headless browser to scrape comments 
+                        from an Instagram post submitted by the user. Randomly selects a winner from the comments and links to 
+                        the winner’s Instagram profile."
+                        github="https://github.com/nanderson815/instaGiveaway"
+                        demo="http://instapicker.appspot.com/"
+                        img="./images/instapicker.PNG" />
                 </div>
             </div>
         )
