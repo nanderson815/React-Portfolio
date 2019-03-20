@@ -22,6 +22,30 @@ class Contact extends React.Component {
     handleSubmit(event) {
         console.log(this.state);
         event.preventDefault();
+        let data = {
+            service_id: 'gmail',
+            template_id: 'template_mjYN8BQS',
+            user_id: 'user_MXAiEo7cocXKDbNvoFujf',
+            template_params: {
+                from_name: this.state.firstName + " " + this.state.lastName,
+                message_html: this.state.message,
+                from_email: this.state.email,
+                reply_to: 'nanderson815@gmail.com'
+            }
+        }
+        this.sendMail(data);
+    }
+
+    sendMail(data) {
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function () {
+            console.log("done");
+        });
     }
 
     render() {
