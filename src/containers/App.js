@@ -30,7 +30,6 @@ class App extends Component {
       "Illustrator",
       "Wordpress",
       "Git",
-      "Bootsrap",
       "Materialize"
     ]
   };

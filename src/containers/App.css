@@ -13,5 +13,5 @@ footer{
 }
 
 .container{
-    min-width: 85% !important;
+   max-width: 1200px;
 }

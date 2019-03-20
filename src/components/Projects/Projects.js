@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Projects.module.css';
+import Project from './Project';
 
 class Projects extends Component {
 
@@ -10,6 +11,7 @@ class Projects extends Component {
                     <div className="headerContainer">
                         <h2 id={styles.projectsHeader} className="header">Projects</h2>
                     </div>
+                    <Project />
                 </div>
             </div>
         )
