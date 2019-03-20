@@ -39,7 +39,7 @@ const navbar = (props) => {
             <div id={styles.navbarFixed} className='navbar-fixed'>
                 <nav id={styles.navBar} className={navBarClass}>
                     <div className="container nav-wrapper">
-                        <div id={styles.headerName} className="brand-logo">Noah Anderson</div>
+                        <div id={styles.headerName} className="brand-logo"><a href="#" >Noah Anderson</a></div>
                         <a href="#!" data-target="mobile-menu" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
                             <li><a href="#About_skillsCont__2uhD_">About</a></li>

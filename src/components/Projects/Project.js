@@ -5,7 +5,7 @@ const project = (props) => {
 
     return (
         <div className={styles.project}>
-            <div className="row">
+            <div className="row ">
                 <div className="col s12 m6">
                     <h4>{props.title}</h4>
                     <h6>{props.tech}</h6>
@@ -15,7 +15,7 @@ const project = (props) => {
                     
                 </div>
                 <div className="col s12 m6">
-                    <img className={[styles.portfolioImg, "z-depth-4"].join(' ')} alt="Pail Budger App" src={props.img}></img>
+                    <img className={[styles.portfolioImg, "z-depth-4"].join(' ')} alt="Portfolio screenshot" src={props.img}></img>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ const header = (props) => {
                         <h2 id={styles.TitleText} className="headerTxt white-text slideRight">Hello, I'm <span
                             className="blue-text text-accent-2">Noah Anderson</span>.</h2>
                         <h4 className="headerTxt white-text slideLeft">I'm a full-stack web developer. </h4>
-                        <a href="#projectsCont" className="waves-effect waves-light blue darken-4 btn-large fadeIn">&lt; View my
+                        <a href="#Projects_projectsCont__W1Q8g" className="waves-effect waves-light blue darken-4 btn-large fadeIn">&lt; View my
                     Work /&gt;</a>
                     </div>
                 </div>
