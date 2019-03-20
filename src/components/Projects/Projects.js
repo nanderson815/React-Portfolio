@@ -20,6 +20,7 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/Pail---Budget-Application"
                         demo="https://fathomless-stream-39221.herokuapp.com/"
                         img="./images/pail-screenshot.PNG" />
+
                     <Project 
                         title="AI Marketplace"
                         tech="HTML | CSS | JavaScript | Node.js | Express.js | jQuery | Handlebars | Materialize | Heroku | SQL | Sequelize | IBM Watson"
@@ -28,7 +29,8 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/AI-Marketplace"
                         demo="https://serene-coast-26233.herokuapp.com/"
                         img="./images/ai-marketplace.PNG" />
-                        <Project 
+
+                    <Project 
                         title="InstaPicker"
                         tech="HTML | CSS | JavaScript | Node.js | Express.js | jQuery | Materialize | Puppeteer | Cheerio | Google Cloud Platform"
                         desc="A node application for picking winners of Instagram Comment Contests.

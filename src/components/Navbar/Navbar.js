@@ -27,7 +27,7 @@ const navbar = (props) => {
                 </li>
                 <li><a className="waves-effect" href="#About_skillsCont__2uhD_">About</a></li>
                 <li><a className="waves-effect" href="#Projects_projectsCont__W1Q8g">Projects</a></li>
-                <li><a className="waves-effect" href="#contactCont">Contact</a></li>
+                <li><a className="waves-effect" href="#Contact_contactCont__1WeuE">Contact</a></li>
                 <li>
 
                     <a href="https://www.linkedin.com/in/noah-anderson-ba844b6b/"><i className="fab fa-linkedin-in fa-2x"></i></a>
@@ -44,7 +44,7 @@ const navbar = (props) => {
                         <ul className="right hide-on-med-and-down">
                             <li><a href="#About_skillsCont__2uhD_">About</a></li>
                             <li><a href="#Projects_projectsCont__W1Q8g">Projects</a></li>
-                            <li><a href="#contactCont">Contact</a></li>
+                            <li><a href="#Contact_contactCont__1WeuE">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
