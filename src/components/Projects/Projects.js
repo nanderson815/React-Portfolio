@@ -19,7 +19,7 @@ class Projects extends Component {
                         and Discretionary Income (Bars, Shopping, etc.)."
                         github="https://github.com/nanderson815/Pail---Budget-Application"
                         demo="https://fathomless-stream-39221.herokuapp.com/"
-                        img="./images/pail-screenshot.PNG" />
+                        img="./images/Pail-screenshot.PNG" />
 
                     <Project 
                         title="AI Marketplace"
