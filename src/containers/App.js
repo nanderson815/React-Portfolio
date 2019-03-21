@@ -10,7 +10,7 @@ class App extends Component {
     isTop: true,
     skills: [
       {
-        id: '1', icon: 'person_pin', title: 'User Focused', desc: "I understand that it's not enough for your project to just 'work'.It needs to work beautifully." },
+        id: '1', icon: 'person_pin', title: 'User Focused', desc: "I understand that it's not enough for your project to just 'work'. It needs to work beautifully." },
       {
         id: '2', icon: 'group', title: 'Team Oriented', desc: 'I have extensive experience working in groups to deliver the best possible service and results for every stakeholder.' },
       {
