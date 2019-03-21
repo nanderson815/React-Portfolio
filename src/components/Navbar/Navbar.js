@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styles from './Navbar.module.css';
 
@@ -25,9 +26,9 @@ const navbar = (props) => {
                         <a href="mailto:NAnderson815@gmail.com"><span className="white-text email">Nanderson815@gmail.com</span></a>
                     </div>
                 </li>
-                <li><a className="waves-effect" href="#About_skillsCont__2uhD_">About</a></li>
-                <li><a className="waves-effect" href="#Projects_projectsCont__W1Q8g">Projects</a></li>
-                <li><a className="waves-effect" href="#Contact_contactCont__1WeuE">Contact</a></li>
+                <li><a className="waves-effect" href="#aboutHeader">About</a></li>
+                <li><a className="waves-effect" href="#projectsHeader">Projects</a></li>
+                <li><a className="waves-effect" href="#contactHeader">Contact</a></li>
                 <li>
 
                     <a href="https://www.linkedin.com/in/noah-anderson-ba844b6b/"><i className="fab fa-linkedin-in fa-2x"></i></a>
@@ -42,9 +43,9 @@ const navbar = (props) => {
                         <div id={styles.headerName} className="brand-logo"><a href="#" >Noah Anderson</a></div>
                         <a href="#!" data-target="mobile-menu" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
-                            <li><a href="#About_skillsCont__2uhD_">About</a></li>
-                            <li><a href="#Projects_projectsCont__W1Q8g">Projects</a></li>
-                            <li><a href="#Contact_contactCont__1WeuE">Contact</a></li>
+                            <li><a href="#aboutHeader">About</a></li>
+                            <li><a href="#projectsHeader">Projects</a></li>
+                            <li><a href="#contactHeader">Contact</a></li>
                         </ul>
                     </div>
                 </nav>

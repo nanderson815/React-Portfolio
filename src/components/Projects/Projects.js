@@ -7,9 +7,9 @@ class Projects extends Component {
     render() {
         return (
             <div id={styles.projectsCont} className="section grey lighten-4">
-                <div className="row container ">
+                <div className="row container">
                     <div className="headerContainer">
-                        <h2 id={styles.projectsHeader} className="header">Projects</h2>
+                        <h2 id="projectsHeader" className="header sectionHeader">Projects</h2>
                     </div>
                     <Project
                         title="Pail - Simple Budgeting App"

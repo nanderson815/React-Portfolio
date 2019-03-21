@@ -2,13 +2,11 @@
     min-height: 100vh;
 }
 
-#projectsHeader {
-    margin-top: 50px;
-}
 
  .project {
      margin-bottom: 150px;
  }
+ 
  .portfolioImg {
     width: 100%;
     margin-top: 1.33em;

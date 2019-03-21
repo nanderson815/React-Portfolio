@@ -8,9 +8,9 @@ class About extends Component {
     render() {
         return (
             <div id={styles.skillsCont} className="section grey lighten-5">
-                <div className="container">
-                    <div className="row">
-                        <h2 id={styles.skillsHeader} className="header">About</h2>
+                <div className="row container">
+                    <div className="headerContainer">
+                        <h2 id="aboutHeader" className="header sectionHeader">About</h2>
                     </div>
                     <div id="skillsContainer" className="row">
                         {this.props.skills.map((skill) => {

@@ -59,9 +59,9 @@ class Contact extends React.Component {
     render() {
         return (
             <div id={styles.contactCont} className="section grey lighten-5">
-                <div className="row container ">
+                <div className="row container">
                     <div className="headerContainer">
-                        <h2 id={styles.contactHeader} className="header">Contact</h2>
+                        <h2 id="contactHeader" className="header sectionHeader">Contact</h2>
                     </div>
 
                     <form id="form1" ref="form1" onSubmit={this.handleSubmit} className="col s12">
