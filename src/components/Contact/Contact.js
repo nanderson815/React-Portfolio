@@ -13,6 +13,7 @@ class Contact extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.sendMail = this.sendMail.bind(this);
     }
 
     handleChange(event) {
@@ -21,19 +22,25 @@ class Contact extends React.Component {
 
     handleSubmit(event) {
         console.log(this.state);
-        event.preventDefault();
-        let data = {
-            service_id: 'gmail',
-            template_id: 'template_mjYN8BQS',
-            user_id: 'user_MXAiEo7cocXKDbNvoFujf',
-            template_params: {
-                from_name: this.state.firstName + " " + this.state.lastName,
-                message_html: this.state.message,
-                from_email: this.state.email,
-                reply_to: 'nanderson815@gmail.com'
+        let form = this.refs.form1;
+        if (form.checkValidity()) {
+
+            event.preventDefault();
+
+            let data = {
+                service_id: 'gmail',
+                template_id: 'template_mjYN8BQS',
+                user_id: 'user_MXAiEo7cocXKDbNvoFujf',
+                template_params: {
+                    from_name: this.state.firstName + " " + this.state.lastName,
+                    message_html: this.state.message,
+                    from_email: this.state.email,
+                    reply_to: 'nanderson815@gmail.com'
+                }
             }
-        }
-        this.sendMail(data);
+            this.sendMail(data);
+        };
+        
     }
 
     sendMail(data) {
@@ -44,7 +51,8 @@ class Contact extends React.Component {
             },
             body: JSON.stringify(data)
         }).then(function () {
-            console.log("done");
+            alert("Message Sent!");
+            window.location.reload();
         });
     }
 
@@ -56,35 +64,27 @@ class Contact extends React.Component {
                         <h2 id={styles.contactHeader} className="header">Contact</h2>
                     </div>
 
-                    <form onSubmit={this.handleSubmit} className="col s12">
+                    <form id="form1" ref="form1" onSubmit={this.handleSubmit} className="col s12">
                         <div className="row">
                             <div className="input-field col s6">
-                                <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleChange} />
-                                <label>
-                                    First Name
-                                </label>
+                                <input id="firstName" className="validate" required aria-required="true" name="firstName" type="text" value={this.state.firstName} onChange={this.handleChange} />
+                                <label htmlFor="firstName">First Name</label>
                             </div>
                             <div className="input-field col s6">
-                                <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleChange} />
-                                <label>
-                                    Last Name
-                                </label>
+                                <input id="lastName" className="validate" required aria-required="true" name="lastName" type="text" value={this.state.lastName} onChange={this.handleChange} />
+                                <label htmlFor="lastName">Last Name </label>
                             </div>
                         </div>
                         <div className="row">
                             <div className="input-field col s12">
-                                <input name="email" type="email" value={this.state.email} onChange={this.handleChange} />
-                                <label>
-                                    Email
-                                </label>
+                                <input id="email" className="validate" required aria-required="true" name="email" type="email" value={this.state.email} onChange={this.handleChange} />
+                                <label htmlFor="email">Email</label>
                             </div>
                         </div>
                         <div className="row">
                             <div className="input-field col s12">
-                                <textarea name="message" className="materialize-textarea" value={this.state.message} onChange={this.handleChange} />
-                                <label>
-                                    Your Message
-                                </label>
+                                <textarea id="message" required aria-required="true" name="message" className="materialize-textarea validate" value={this.state.message} onChange={this.handleChange} />
+                                <label htmlFor="message">Your Message</label>
                             </div>
                         </div>
 
