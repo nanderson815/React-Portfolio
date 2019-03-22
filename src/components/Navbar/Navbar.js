@@ -46,6 +46,8 @@ const navbar = (props) => {
                             <li><a href="#aboutHeader">About</a></li>
                             <li><a href="#projectsHeader">Projects</a></li>
                             <li><a href="#contactHeader">Contact</a></li>
+                            <li><a href="https://www.linkedin.com/in/noah-anderson-ba844b6b/"><i className="fab fa-linkedin-in fa-2x"></i></a></li>
+                            <li><a href="https://github.com/nanderson815"><i className="fab fa-github fa-2x"></i></a></li>
                         </ul>
                     </div>
                 </nav>
