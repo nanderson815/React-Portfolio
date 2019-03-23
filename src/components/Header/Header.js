@@ -7,6 +7,7 @@ const header = (props) => {
     return (
         <div id={styles.background}>
             <Navbar scroll={props.scroll}/>
+            
             <div id={styles.headerImage} className="valign-wrapper">
                 <div className="row container center">
                     <div>

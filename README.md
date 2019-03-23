@@ -1,5 +1,7 @@
 # Noah Anderson - Portfolio
 # Live Version: https://noahanderson.dev/
+### LinkedIn: https://www.linkedin.com/in/noah-anderson-ba844b6b/
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
