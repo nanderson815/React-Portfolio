@@ -35,6 +35,7 @@ class App extends Component {
     ]
   };
 
+  // Changes the scroll bar transparency. Only rerenders when boolean changes.
   componentDidMount() {
     document.addEventListener('scroll', () => {
       const isTop = window.scrollY < 100;

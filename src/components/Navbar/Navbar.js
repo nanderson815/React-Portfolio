@@ -4,8 +4,8 @@ import styles from './Navbar.module.css';
 
 const navbar = (props) => {
 
+    // Handles scrollbar color/transparency
     let navBarClass = '';
-
     if (props.scroll){
         navBarClass = 'transparent z-depth-0';
     } else {
