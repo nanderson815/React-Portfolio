@@ -40,6 +40,15 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/instaGiveaway"
                         demo="http://instapicker.appspot.com/"
                         img="./images/instapicker.PNG" />
+
+                        <Project 
+                        title="BBC News Scraper"
+                        tech="HTML | CSS | JavaScript | Node.js | Express.js |  Materialize | Cheerio | Heroku | MongoDB"
+                        desc="An application for scraping the latest news from the BBC Long Reads Section. 
+                        Users can scrape new articles and leave comments. Articles and comments are stored in a cloud mongo database."
+                        github="https://github.com/nanderson815/NewsScraper"
+                        demo="https://mysterious-basin-60237.herokuapp.com/"
+                        img="./images/news-scraper.PNG" />
                 </div>
             </div>
         )
