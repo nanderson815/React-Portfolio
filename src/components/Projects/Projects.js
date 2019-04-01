@@ -41,7 +41,7 @@ class Projects extends Component {
                         demo="http://instapicker.appspot.com/"
                         img="./images/instapicker.PNG" />
 
-                        <Project 
+                    <Project 
                         title="BBC News Scraper"
                         tech="HTML | CSS | JavaScript | Node.js | Express.js |  Materialize | Cheerio | Heroku | MongoDB"
                         desc="An application for scraping the latest news from the BBC Long Reads Section. 
@@ -49,6 +49,15 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/NewsScraper"
                         demo="https://mysterious-basin-60237.herokuapp.com/"
                         img="./images/news-scraper.PNG" />
+
+                    <Project 
+                        title="Clicky Game"
+                        tech="HTML | CSS | JavaScript | React | Materialize | Firebase"
+                        desc="A memory game create using React. Try to click every image, but don't click the same image more 
+                        than once!"
+                        github="https://github.com/nanderson815/clickyGame"
+                        demo="https://clickygame-caee5.firebaseapp.com/"
+                        img="./images/clicky.PNG" />
                 </div>
             </div>
         )
