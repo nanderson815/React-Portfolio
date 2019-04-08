@@ -11,16 +11,7 @@ class Projects extends Component {
                     <div className="headerContainer">
                         <h2 id="projectsHeader" className="header sectionHeader">Projects</h2>
                     </div>
-                    <Project
-                        title="Pail - Simple Budgeting App"
-                        tech="HTML | CSS | Firebase | Plaid API | JavaScript | jQuery | Node.js | Materialize"
-                        desc="A mobile-first web application that simplifies budgeting by sorting expenses 
-                        into two primary categories: Recurring Expenses (Rent, Mortgage, Car Payment, Groceries, etc.) 
-                        and Discretionary Income (Bars, Shopping, etc.)."
-                        github="https://github.com/nanderson815/Pail---Budget-Application"
-                        demo="https://fathomless-stream-39221.herokuapp.com/"
-                        img="./images/Pail-screenshot.PNG" />
-
+                    
                     <Project 
                         title="AI Marketplace"
                         tech="HTML | CSS | JavaScript | Node.js | Express.js | jQuery | Handlebars | Materialize | Heroku | SQL | Sequelize | IBM Watson"
@@ -29,6 +20,15 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/AI-Marketplace"
                         demo="https://serene-coast-26233.herokuapp.com/"
                         img="./images/ai-marketplace.PNG" />
+
+                    <Project 
+                        title="Google Books Search"
+                        tech="HTML | CSS | JavaScript | MongoDB | Express.js | React | Node.js | Materialize | Heroku "
+                        desc="An applicaiton for searching books available on Google Books. The application allows users to save and delete books
+                        to a MongoDB cloud database. "
+                        github="https://github.com/nanderson815/googleBooksSearch"
+                        demo="https://serene-fortress-98379.herokuapp.com/search"
+                        img="./images/google-books.PNG" />
 
                     <Project 
                         title="InstaPicker"
@@ -49,6 +49,16 @@ class Projects extends Component {
                         github="https://github.com/nanderson815/NewsScraper"
                         demo="https://mysterious-basin-60237.herokuapp.com/"
                         img="./images/news-scraper.PNG" />
+
+                    <Project
+                        title="Pail - Simple Budgeting App"
+                        tech="HTML | CSS | Firebase | Plaid API | JavaScript | jQuery | Node.js | Materialize"
+                        desc="A mobile-first web application that simplifies budgeting by sorting expenses 
+                        into two primary categories: Recurring Expenses (Rent, Mortgage, Car Payment, Groceries, etc.) 
+                        and Discretionary Income (Bars, Shopping, etc.)."
+                        github="https://github.com/nanderson815/Pail---Budget-Application"
+                        demo="https://fathomless-stream-39221.herokuapp.com/"
+                        img="./images/Pail-screenshot.PNG" />
 
                     <Project 
                         title="Clicky Game"
