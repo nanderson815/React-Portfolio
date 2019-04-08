@@ -24,7 +24,7 @@ class Projects extends Component {
                     <Project 
                         title="Google Books Search"
                         tech="HTML | CSS | JavaScript | MongoDB | Express.js | React | Node.js | Materialize | Heroku "
-                        desc="An applicaiton for searching books available on Google Books. The application allows users to save and delete books
+                        desc="An application for searching books available on Google Books. The application allows users to save and delete books
                         to a MongoDB cloud database. "
                         github="https://github.com/nanderson815/googleBooksSearch"
                         demo="https://serene-fortress-98379.herokuapp.com/search"
