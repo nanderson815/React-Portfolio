@@ -1,17 +1,15 @@
 #projectsCont {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
+.project {
+  margin-bottom: 150px;
+}
 
- .project {
-     margin-bottom: 150px;
- }
- 
- .portfolioImg {
-    width: 100%;
-    margin-top: 1.33em;
- }
+.portfolioImg {
+  width: 100%;
+}
 
- .button {
-     margin: 5px;
- }
+.button {
+  margin: 5px;
+}

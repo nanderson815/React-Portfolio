@@ -28,7 +28,7 @@ class Contact extends React.Component {
             event.preventDefault();
 
             let data = {
-                service_id: 'gmail',
+                service_id: 'service_xoorp58',
                 template_id: 'template_mjYN8BQS',
                 user_id: 'user_MXAiEo7cocXKDbNvoFujf',
                 template_params: {
