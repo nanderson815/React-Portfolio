@@ -6,7 +6,7 @@
       "desc": "Georgia on my Dime is the largest and most utilized happy hour website in Atlanta. We connect customers the best restaurants in the city. Over the past 3 years, Georgia on my Dime has grown to 15,000 monthly unique visitors and represents hundreds of restaurants in Atlanta.",
       "github": "https://github.com/nanderson815/GOMD-Gatsby",
       "demo": "https://georgiaonmydime.com/",
-      "img": "./images/gomd.PNG"
+      "img": "./images/gomd.png"
     },
     {
       "title": "Atlanta Track Club Team Challenge",
@@ -14,7 +14,7 @@
       "desc": "The Atlanta Track Club Team Challenge website was created to keep members engaged and competing while many in person events were cancelled due to COVID-19. The site hosts digital challenges, like the Race Around America, that allow users to compete digitally and track their workouts and progress. The site connects directly to a user’s Strava account, so no manual data entry is required.",
       "github": "https://github.com/plinck/TeamATC",
       "demo": "https://www.triclubchallenge.com",
-      "img": "./images/atc.PNG"
+      "img": "./images/atc.png"
     },
     {
       "title": "Dollaroo",
@@ -22,7 +22,7 @@
       "desc": "Dollaroo is a cloud-based web and mobile application that imitates smart safe functionality with minimal upfront cost.",
       "github": "https://github.com/nanderson815/dolaroo",
       "demo": "https://lit-waters-19467.herokuapp.com/dashboard",
-      "img": "./images/dollaroo.PNG"
+      "img": "./images/dollaroo.png"
     }
   ]
 }
