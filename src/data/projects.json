@@ -23,6 +23,14 @@
       "github": "https://github.com/nanderson815/dolaroo",
       "demo": "https://lit-waters-19467.herokuapp.com/dashboard",
       "img": "./images/dollaroo.png"
+    },
+    {
+      "title": "My Portfolio on the Distributed Internet",
+      "tech": ["React", "IPFS"],
+      "desc": "My portfolio but hosted on The InterPlanetary File System (IPFS)! IPFS is a protocol and peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting all computing devices, making it completely censorship-proof. IPFS is a technology that I love to use and I am passionate about.",
+      "github": "https://github.com/nanderson815/React-Portfolio",
+      "demo": "https://ipfs.io/ipfs/QmPtyPWnsXPQruJDK7mB8jhcczVUmf4y9mFkE3Xuwbi1bE",
+      "img": "./images/portfolio.png"
     }
   ]
 }
