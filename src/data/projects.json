@@ -3,7 +3,7 @@
     {
       "title": "Georgia on my Dime",
       "tech": ["React", "Gatsby", "Firebase", "Stripe", "Contentful"],
-      "desc": "Georgia on my Dime is the largest and most utilized happy hour website in Atlanta. We connect customers the best restaurants in the city. Over the past 3 years, Georgia on my Dime has grown to 15,000 monthly unique visitors and represents hundreds of restaurants in Atlanta.",
+      "desc": "Georgia on my Dime is the largest and most utilized happy hour website in Atlanta. We connect customers to the best restaurants in the city. Over the past 3 years, Georgia on my Dime has grown to 15,000 monthly unique visitors and represents hundreds of restaurants in Atlanta.",
       "github": "https://github.com/nanderson815/GOMD-Gatsby",
       "demo": "https://georgiaonmydime.com/",
       "img": "./images/gomd.png"
