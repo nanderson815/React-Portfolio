@@ -13,10 +13,10 @@ export function useExplosion() {
     // Explode -> Dance
     setTimeout(() => setPhase('dance'), 600);
 
-    // Dance -> Settle (stop animation, stay scattered)
+    // Dance -> Settle (freeze in place)
     setTimeout(() => setPhase('settle'), 2800);
 
-    // Settle -> Return (smooth transition back)
+    // Settle -> Return (smooth transition home)
     setTimeout(() => setPhase('return'), 3000);
 
     // Return -> Idle
