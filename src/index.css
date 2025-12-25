@@ -64,6 +64,15 @@ body {
   letter-spacing: 0.05em;
 }
 
+.nav-link {
+  color: #666;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #1a1a1a;
+}
+
 .nav-separator {
   color: #ccc;
   font-weight: 300;
@@ -157,12 +166,8 @@ body {
 
 .link,
 .footer-link {
-  font-size: 0.875rem;
-  font-weight: 300;
   color: #999;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease;
 }
 
 .link:hover,
