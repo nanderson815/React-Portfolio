@@ -8,19 +8,11 @@ function Home() {
   useEasterEgg();
   const { phase } = useExplosion();
 
-  const name = "Noah Anderson";
-  const totalLetters = name.length;
-
   return (
     <div className="container">
       <main className="main">
         <h1 className="name">
-          <ExplodingText
-            text={name}
-            phase={phase}
-            totalLetters={totalLetters}
-            startIndex={0}
-          />
+          <ExplodingText text="Noah Anderson" phase={phase} />
         </h1>
         <nav className="nav">
           <Link to="/about" className="nav-link">about</Link>
