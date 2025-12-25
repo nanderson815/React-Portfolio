@@ -11,7 +11,7 @@ function App() {
         <p className="tagline">coming soon<span className="cursor">_</span></p>
       </main>
       <footer className="footer">
-        <a href="mailto:hello@noahanderson.dev" className="link">say hello</a>
+        <a href="mailto:nanderson815@gmail.com" className="link">say hello</a>
       </footer>
     </div>
   );
