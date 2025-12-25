@@ -58,30 +58,23 @@ body {
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
-}
-
-.nav-link {
   font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 300;
   color: #666;
-  text-decoration: none;
   letter-spacing: 0.05em;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: #1a1a1a;
 }
 
 .nav-separator {
   color: #ccc;
   font-weight: 300;
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Letter animations */
 .letter {
   display: inline-block;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition-delay: var(--delay);
 }
 
@@ -98,6 +91,13 @@ body {
   animation-delay: var(--delay);
 }
 
+/* Settle: stop at scattered position before returning */
+.letter--settle {
+  transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+  animation: none;
+}
+
+/* Return: smooth transition back home */
 .letter--return {
   transform: translate(0, 0) rotate(0deg);
   animation: none;
@@ -149,6 +149,10 @@ body {
 .footer {
   position: fixed;
   bottom: 2rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #999;
+  letter-spacing: 0.05em;
 }
 
 .link {

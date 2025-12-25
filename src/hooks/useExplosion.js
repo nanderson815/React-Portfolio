@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 export function useExplosion() {
   const [isExploding, setIsExploding] = useState(false);
-  const [phase, setPhase] = useState('idle'); // idle, explode, dance, return
+  const [phase, setPhase] = useState('idle');
 
   const triggerExplosion = useCallback(() => {
     if (isExploding) return;
@@ -10,17 +10,20 @@ export function useExplosion() {
     setIsExploding(true);
     setPhase('explode');
 
-    // Explode -> Dance (give time for scatter animation)
-    setTimeout(() => setPhase('dance'), 800);
+    // Explode -> Dance
+    setTimeout(() => setPhase('dance'), 600);
 
-    // Dance -> Return (orbit for a while)
-    setTimeout(() => setPhase('return'), 3200);
+    // Dance -> Settle (stop animation, stay scattered)
+    setTimeout(() => setPhase('settle'), 2800);
 
-    // Return -> Idle (give time for return animation)
+    // Settle -> Return (smooth transition back)
+    setTimeout(() => setPhase('return'), 3000);
+
+    // Return -> Idle
     setTimeout(() => {
       setPhase('idle');
       setIsExploding(false);
-    }, 4200);
+    }, 3800);
   }, [isExploding]);
 
   useEffect(() => {
