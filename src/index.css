@@ -35,48 +35,81 @@ body {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 400;
   letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.page-title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   margin-bottom: 1rem;
 }
 
-.tagline {
+.coming-soon {
   font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 300;
   color: #666;
   letter-spacing: 0.05em;
 }
 
-/* Letter base */
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 300;
+  color: #666;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #1a1a1a;
+}
+
+.nav-separator {
+  color: #ccc;
+  font-weight: 300;
+}
+
+/* Letter animations - all transform-based for smooth transitions */
 .letter {
   display: inline-block;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity 0.3s ease;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition-delay: var(--delay);
 }
 
-/* Phase 1: Scatter */
-.letter--scattered {
-  transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+.letter--idle {
+  transform: translate(0, 0) rotate(0deg);
 }
 
-/* Phase 2: Orbit in circle */
-.letter--orbiting {
-  --radius: min(35vw, 150px);
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-left: -0.5em;
-  margin-top: -0.5em;
-  transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle)));
-  animation: orbit 2s linear infinite;
-  transform-origin: center center;
+.letter--explode {
+  transform: translate(var(--scatter-x), var(--scatter-y)) rotate(var(--scatter-rotate));
+}
+
+.letter--dance {
+  transform: translate(var(--circle-x), var(--circle-y)) rotate(0deg);
+  animation: orbit 3s linear infinite;
+  animation-delay: var(--orbit-delay);
+}
+
+.letter--return {
+  transform: translate(0, 0) rotate(0deg);
+  animation: none;
 }
 
 @keyframes orbit {
   from {
-    transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle)));
+    transform: translate(var(--circle-x), var(--circle-y)) rotate(0deg);
   }
   to {
-    transform: rotate(calc(var(--angle) + 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--angle) + 360deg)));
+    transform: translate(var(--circle-x), var(--circle-y)) rotate(360deg);
   }
 }
 
