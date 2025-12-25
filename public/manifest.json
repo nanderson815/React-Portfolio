@@ -1,6 +1,6 @@
 {
-  "short_name": "Portfolio",
-  "name": "Noah Anderson - React Portfolio",
+  "short_name": "Noah",
+  "name": "Noah Anderson",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#fafafa",
+  "background_color": "#fafafa"
 }
