@@ -23,6 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .main {
@@ -43,8 +44,43 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Letter animations */
+.letter {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.3s ease;
+  transition-delay: var(--delay);
+}
+
+.letter--active {
+  transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+}
+
+.letter--dancing {
+  animation: dance 0.4s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+@keyframes dance {
+  0% {
+    transform: translate(var(--x), var(--y)) rotate(var(--rotate)) scale(1);
+  }
+  100% {
+    transform: translate(
+      calc(var(--x) + 10px),
+      calc(var(--y) - 10px)
+    ) rotate(calc(var(--rotate) + 20deg)) scale(1.1);
+  }
+}
+
+/* Cursor */
 .cursor {
   animation: blink 1s step-end infinite;
+  transition: opacity 0.3s ease;
+}
+
+.cursor--hidden {
+  opacity: 0;
 }
 
 @keyframes blink {
@@ -52,6 +88,7 @@ body {
   50% { opacity: 0; }
 }
 
+/* Footer */
 .footer {
   position: fixed;
   bottom: 2rem;
