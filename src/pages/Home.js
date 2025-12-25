@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import ExplodingText from '../components/ExplodingText';
 import { useEasterEgg } from '../hooks/useEasterEgg';
 import { useExplosion } from '../hooks/useExplosion';
@@ -21,13 +22,19 @@ function Home() {
           <ExplodingText text="Noah Anderson" phase={phase} />
         </h1>
         <nav className="nav">
-          <ExplodingText text="about" phase={phase} baseDelay={150} />
+          <Link to="/about" className="nav-link">
+            <ExplodingText text="about" phase={phase} baseDelay={150} />
+          </Link>
           <span className={`nav-separator letter letter--${phase}`} style={separatorStyle}>·</span>
-          <ExplodingText text="projects" phase={phase} baseDelay={200} />
+          <Link to="/projects" className="nav-link">
+            <ExplodingText text="projects" phase={phase} baseDelay={200} />
+          </Link>
         </nav>
       </main>
       <footer className="footer">
-        <ExplodingText text="say hello" phase={phase} baseDelay={300} />
+        <a href="mailto:nanderson815@gmail.com" className="footer-link">
+          <ExplodingText text="say hello" phase={phase} baseDelay={300} />
+        </a>
       </footer>
     </div>
   );

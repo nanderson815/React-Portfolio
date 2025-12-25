@@ -155,7 +155,8 @@ body {
   letter-spacing: 0.05em;
 }
 
-.link {
+.link,
+.footer-link {
   font-size: 0.875rem;
   font-weight: 300;
   color: #999;
@@ -164,7 +165,8 @@ body {
   transition: color 0.2s ease;
 }
 
-.link:hover {
+.link:hover,
+.footer-link:hover {
   color: #1a1a1a;
 }
 
