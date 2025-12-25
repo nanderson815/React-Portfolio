@@ -28,6 +28,7 @@ body {
 
 .main {
   text-align: center;
+  position: relative;
 }
 
 .name {
@@ -44,7 +45,7 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* Letter animations */
+/* Letter base */
 .letter {
   display: inline-block;
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -52,24 +53,30 @@ body {
   transition-delay: var(--delay);
 }
 
-.letter--active {
+/* Phase 1: Scatter */
+.letter--scattered {
   transform: translate(var(--x), var(--y)) rotate(var(--rotate));
 }
 
-.letter--dancing {
-  animation: dance 0.4s ease-in-out infinite alternate;
-  animation-delay: var(--delay);
+/* Phase 2: Orbit in circle */
+.letter--orbiting {
+  --radius: min(35vw, 150px);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle)));
+  animation: orbit 2s linear infinite;
+  transform-origin: center center;
 }
 
-@keyframes dance {
-  0% {
-    transform: translate(var(--x), var(--y)) rotate(var(--rotate)) scale(1);
+@keyframes orbit {
+  from {
+    transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle)));
   }
-  100% {
-    transform: translate(
-      calc(var(--x) + 10px),
-      calc(var(--y) - 10px)
-    ) rotate(calc(var(--rotate) + 20deg)) scale(1.1);
+  to {
+    transform: rotate(calc(var(--angle) + 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--angle) + 360deg)));
   }
 }
 

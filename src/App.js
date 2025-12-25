@@ -2,27 +2,35 @@ import React, { useMemo } from 'react';
 import { useEasterEgg } from './hooks/useEasterEgg';
 import { useExplosion } from './hooks/useExplosion';
 
-function ExplodingText({ text, phase, baseDelay = 0 }) {
+function ExplodingText({ text, phase, baseDelay = 0, totalLetters, startIndex }) {
   const letters = useMemo(() => {
-    return text.split('').map((char, i) => ({
-      char,
-      x: (Math.random() - 0.5) * 400,
-      y: (Math.random() - 0.5) * 300,
-      rotate: (Math.random() - 0.5) * 720,
-      delay: i * 20 + baseDelay,
-    }));
-  }, [text, baseDelay]);
+    return text.split('').map((char, i) => {
+      const globalIndex = startIndex + i;
+      const angle = (globalIndex / totalLetters) * 360;
+      return {
+        char,
+        // Random scatter positions
+        x: (Math.random() - 0.5) * 400,
+        y: (Math.random() - 0.5) * 300,
+        rotate: (Math.random() - 0.5) * 720,
+        // Circle position
+        angle,
+        delay: i * 20 + baseDelay,
+      };
+    });
+  }, [text, baseDelay, totalLetters, startIndex]);
 
   return (
     <>
       {letters.map((letter, i) => (
         <span
           key={i}
-          className={`letter ${phase !== 'idle' ? 'letter--active' : ''} ${phase === 'dance' ? 'letter--dancing' : ''}`}
+          className={`letter ${phase === 'explode' ? 'letter--scattered' : ''} ${phase === 'dance' ? 'letter--orbiting' : ''}`}
           style={{
             '--x': `${letter.x}px`,
             '--y': `${letter.y}px`,
             '--rotate': `${letter.rotate}deg`,
+            '--angle': `${letter.angle}deg`,
             '--delay': `${letter.delay}ms`,
           }}
         >
@@ -37,14 +45,29 @@ function App() {
   useEasterEgg();
   const { phase } = useExplosion();
 
+  const name = "Noah Anderson";
+  const tagline = "coming soon";
+  const totalLetters = name.length + tagline.length;
+
   return (
-    <div className="container">
+    <div className={`container ${phase === 'dance' ? 'container--orbiting' : ''}`}>
       <main className="main">
         <h1 className="name">
-          <ExplodingText text="Noah Anderson" phase={phase} />
+          <ExplodingText
+            text={name}
+            phase={phase}
+            totalLetters={totalLetters}
+            startIndex={0}
+          />
         </h1>
         <p className="tagline">
-          <ExplodingText text="coming soon" phase={phase} baseDelay={100} />
+          <ExplodingText
+            text={tagline}
+            phase={phase}
+            baseDelay={100}
+            totalLetters={totalLetters}
+            startIndex={name.length}
+          />
           <span className={`cursor ${phase !== 'idle' ? 'cursor--hidden' : ''}`}>_</span>
         </p>
       </main>
