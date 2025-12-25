@@ -10,28 +10,27 @@ export function useExplosion() {
     setIsExploding(true);
     setPhase('explode');
 
-    // Explode -> Dance
-    setTimeout(() => setPhase('dance'), 600);
+    // Explode -> Dance (give time for scatter animation)
+    setTimeout(() => setPhase('dance'), 800);
 
-    // Dance -> Return
-    setTimeout(() => setPhase('return'), 2600);
+    // Dance -> Return (orbit for a while)
+    setTimeout(() => setPhase('return'), 3200);
 
-    // Return -> Idle
+    // Return -> Idle (give time for return animation)
     setTimeout(() => {
       setPhase('idle');
       setIsExploding(false);
-    }, 3400);
+    }, 4200);
   }, [isExploding]);
 
   useEffect(() => {
     let clickTimes = [];
     let spaceTimes = [];
-    const threshold = 500; // ms between clicks/presses
+    const threshold = 500;
     const requiredCount = 3;
 
     const checkTrigger = (times) => {
       const now = Date.now();
-      // Filter to only recent events
       const recent = times.filter(t => now - t < threshold);
       return recent.length >= requiredCount;
     };

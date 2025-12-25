@@ -6,6 +6,7 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "2.1.8",
     "react-test-renderer": "^16.8.5"
   },
@@ -23,6 +24,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {}
+  ]
 }
