@@ -95,8 +95,46 @@ body {
   transform: translate(var(--x), var(--y)) rotate(var(--rotate));
 }
 
+.letter--dance {
+  animation: fly 1.5s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.letter--settle {
+  animation: none;
+  /* transform is set via inline style from JS */
+}
+
 .letter--return {
   transform: translate(0, 0) rotate(0deg);
+  animation: none;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+  }
+  25% {
+    transform: translate(
+      calc(var(--x) * -0.5 + 50px),
+      calc(var(--y) * -0.8 - 40px)
+    ) rotate(calc(var(--rotate) + 90deg));
+  }
+  50% {
+    transform: translate(
+      calc(var(--x) * 0.3 - 60px),
+      calc(var(--y) * 0.6 + 50px)
+    ) rotate(calc(var(--rotate) + 180deg));
+  }
+  75% {
+    transform: translate(
+      calc(var(--x) * -0.7 + 40px),
+      calc(var(--y) * -0.4 - 30px)
+    ) rotate(calc(var(--rotate) + 270deg));
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) rotate(calc(var(--rotate) + 360deg));
+  }
 }
 
 /* Cursor */
