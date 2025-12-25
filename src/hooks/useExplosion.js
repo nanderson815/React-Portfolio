@@ -10,20 +10,14 @@ export function useExplosion() {
     setIsExploding(true);
     setPhase('explode');
 
-    // Explode -> Dance
-    setTimeout(() => setPhase('dance'), 600);
+    // Hold scattered, then return
+    setTimeout(() => setPhase('return'), 2000);
 
-    // Dance -> Settle (stop animation, stay scattered)
-    setTimeout(() => setPhase('settle'), 2800);
-
-    // Settle -> Return (smooth transition back)
-    setTimeout(() => setPhase('return'), 3000);
-
-    // Return -> Idle
+    // Back to idle
     setTimeout(() => {
       setPhase('idle');
       setIsExploding(false);
-    }, 3800);
+    }, 2800);
   }, [isExploding]);
 
   useEffect(() => {
