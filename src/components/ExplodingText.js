@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState } from 'react';
+import React, { useMemo, useRef, useLayoutEffect, useState } from 'react';
 
 function ExplodingText({ text, phase, baseDelay = 0 }) {
   const lettersRef = useRef([]);
@@ -14,8 +14,8 @@ function ExplodingText({ text, phase, baseDelay = 0 }) {
     }));
   }, [text, baseDelay]);
 
-  // Capture current transforms when transitioning from dance to settle
-  useEffect(() => {
+  // Capture transforms synchronously before browser paints
+  useLayoutEffect(() => {
     if (phase === 'settle') {
       const transforms = {};
       lettersRef.current.forEach((el, i) => {
@@ -33,20 +33,32 @@ function ExplodingText({ text, phase, baseDelay = 0 }) {
   return (
     <>
       {letters.map((letter, i) => {
-        const isFrozen = phase === 'settle' || phase === 'return';
-        const frozenStyle = frozenTransforms[i] ? { transform: frozenTransforms[i] } : {};
+        // Determine inline transform based on phase
+        let inlineTransform = {};
+        if (phase === 'settle' && frozenTransforms[i]) {
+          inlineTransform = { transform: frozenTransforms[i] };
+        } else if (phase === 'return') {
+          // Transition TO origin - CSS transition will animate from frozen position
+          inlineTransform = { transform: 'translate(0px, 0px) rotate(0deg)' };
+        }
+
+        // Keep dancing until we have frozen transforms
+        let effectivePhase = phase;
+        if (phase === 'settle' && !frozenTransforms[i]) {
+          effectivePhase = 'dance';
+        }
 
         return (
           <span
             key={i}
             ref={el => lettersRef.current[i] = el}
-            className={`letter letter--${phase}`}
+            className={`letter letter--${effectivePhase}`}
             style={{
               '--x': `${letter.x}px`,
               '--y': `${letter.y}px`,
               '--rotate': `${letter.rotate}deg`,
               '--delay': `${letter.delay}ms`,
-              ...(isFrozen && phase === 'settle' ? frozenStyle : {}),
+              ...inlineTransform,
             }}
           >
             {letter.char === ' ' ? '\u00A0' : letter.char}
