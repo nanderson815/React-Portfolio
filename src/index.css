@@ -100,14 +100,10 @@ body {
   animation-delay: var(--delay);
 }
 
-.letter--settle {
-  animation: none;
-  /* transform is set via inline style from JS */
-}
-
+.letter--settle,
 .letter--return {
-  transform: translate(0, 0) rotate(0deg);
   animation: none;
+  /* transform handled by inline style for smooth transition */
 }
 
 @keyframes fly {
