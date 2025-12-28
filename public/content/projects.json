@@ -1,3 +1,11 @@
 {
-  "projects": null
+  "projects": [
+    {
+      "title": "Example Project",
+      "description": "This is an example project to demonstrate the markdown format. Click 'read more' to see the full page!",
+      "slug": "example-project",
+      "github": "https://github.com/yourusername/example",
+      "link": "https://example.com"
+    }
+  ]
 }

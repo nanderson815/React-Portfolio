@@ -28,18 +28,31 @@ function Projects() {
           <div className="projects-list">
             {projects.map((project, index) => (
               <div key={index} className="project-item">
-                <h2>{project.title}</h2>
+                {project.slug ? (
+                  <Link to={`/projects/${project.slug}`}>
+                    <h2>{project.title}</h2>
+                  </Link>
+                ) : (
+                  <h2>{project.title}</h2>
+                )}
                 {project.description && <p>{project.description}</p>}
-                {project.link && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="link">
-                    view project →
-                  </a>
-                )}
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="link">
-                    github →
-                  </a>
-                )}
+                <div className="project-links">
+                  {project.slug && (
+                    <Link to={`/projects/${project.slug}`} className="link">
+                      read more →
+                    </Link>
+                  )}
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="link">
+                      view project →
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="link">
+                      github →
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
