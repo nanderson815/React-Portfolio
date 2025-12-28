@@ -19,8 +19,8 @@ function About() {
   }, []);
 
   return (
-    <div className="container">
-      <main className="main">
+    <div className="container container--content">
+      <main className="main main--content">
         <h1 className="page-title">about</h1>
         {loading ? (
           <p className="coming-soon">loading<span className="cursor">_</span></p>

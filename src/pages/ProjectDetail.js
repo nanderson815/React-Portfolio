@@ -28,8 +28,8 @@ function ProjectDetail() {
   }, [slug]);
 
   return (
-    <div className="container">
-      <main className="main">
+    <div className="container container--content">
+      <main className="main main--content">
         {loading ? (
           <p className="coming-soon">loading<span className="cursor">_</span></p>
         ) : error ? (

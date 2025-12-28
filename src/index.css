@@ -26,9 +26,21 @@ body {
   overflow: hidden;
 }
 
+.container--content {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 4rem;
+}
+
 .main {
   text-align: center;
   position: relative;
+}
+
+.main--content {
+  text-align: left;
+  width: 100%;
+  max-width: 650px;
 }
 
 .name {
@@ -180,10 +192,7 @@ body {
 
 /* Projects List */
 .projects-list {
-  max-width: 650px;
-  width: 100%;
   margin-top: 2.5rem;
-  text-align: left;
 }
 
 .project-item {
@@ -222,9 +231,6 @@ body {
 
 /* Project Detail */
 .project-detail {
-  max-width: 650px;
-  width: 100%;
-  text-align: left;
   margin-top: 1.5rem;
 }
 
@@ -332,9 +338,6 @@ body {
 
 /* Content (About page) */
 .content {
-  max-width: 650px;
-  width: 100%;
-  text-align: left;
   margin-top: 2rem;
 }
 
