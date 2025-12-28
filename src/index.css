@@ -30,6 +30,8 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   padding-top: 4rem;
+  padding-bottom: 6rem;
+  overflow: visible;
 }
 
 .main {
@@ -332,7 +334,7 @@ body {
 }
 
 .project-detail strong {
-  font-weight: 400;
+  font-weight: 500;
   color: #1a1a1a;
 }
 
@@ -365,4 +367,28 @@ body {
   line-height: 1.7;
   color: #666;
   font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container--content {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .project-item {
+    margin-bottom: 2.5rem;
+  }
+
+  .projects-list {
+    margin-top: 2rem;
+  }
+
+  .project-detail {
+    margin-top: 1rem;
+  }
+
+  .content {
+    margin-top: 1.5rem;
+  }
 }
