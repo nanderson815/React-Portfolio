@@ -1,4 +1,13 @@
 {
   "title": "about",
-  "content": null
+  "content": [
+    {
+      "heading": "currently",
+      "text": "Building things at Anthropic. Probably drinking coffee."
+    },
+    {
+      "heading": "interests",
+      "text": "I like writing code and solving tough problems—the kind that stick with you after you've closed your laptop."
+    }
+  ]
 }
