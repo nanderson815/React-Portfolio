@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import about from '../content/about.json';
 
 function About() {
-  const [content, setContent] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/content/about.json')
-      .then(response => response.json())
-      .then(data => {
-        setContent(data.content);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching about content:', error);
-        setLoading(false);
-      });
-  }, []);
+  const { content } = about;
 
   return (
     <div className="container container--content">
       <main className="main main--content">
         <h1 className="page-title">about</h1>
-        {loading ? (
-          <p className="coming-soon">loading<span className="cursor">_</span></p>
-        ) : content ? (
+        {content ? (
           <div className="content">
             {typeof content === 'string' ? (
               <p>{content}</p>
