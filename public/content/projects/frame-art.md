@@ -20,6 +20,8 @@ art API, including matte settings.
 
 Everything runs on the LAN. There is no account and no hosted server.
 
+![A framed picture on a wall, with a phone and a stack of candidate works alongside it](/content/projects/images/frame-wall.svg)
+
 ## Matching art to a room
 
 You photograph the wall. Claude returns a structured assessment of the photo:
