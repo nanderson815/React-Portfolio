@@ -172,6 +172,12 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Content pages scroll, so a pinned footer would sit on top of the article. */
+.container--content .footer {
+  position: static;
+  margin-top: 4rem;
+}
+
 .link,
 .footer-link {
   color: #999;

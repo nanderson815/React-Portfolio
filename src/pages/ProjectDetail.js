@@ -11,7 +11,10 @@ function ProjectDetail() {
   useEffect(() => {
     fetch(`/content/projects/${slug}.md`)
       .then(response => {
-        if (!response.ok) {
+        // A missing .md is caught by the catch-all rewrite and comes back as
+        // index.html with a 200, so the content type is what identifies it.
+        const type = response.headers.get('content-type') || '';
+        if (!response.ok || type.includes('text/html')) {
           throw new Error('Project not found');
         }
         return response.text();
