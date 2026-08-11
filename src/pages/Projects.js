@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import content from '../content/projects.json';
 
 function Projects() {
-  const [projects, setProjects] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/content/projects.json')
-      .then(response => response.json())
-      .then(data => {
-        setProjects(data.projects);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching projects:', error);
-        setLoading(false);
-      });
-  }, []);
+  const { projects } = content;
 
   return (
     <div className="container container--content">
       <main className="main main--content">
         <h1 className="page-title">projects</h1>
-        {loading ? (
-          <p className="coming-soon">loading<span className="cursor">_</span></p>
-        ) : projects ? (
+        {projects ? (
           <div className="projects-list">
             {projects.map((project, index) => (
               <div key={index} className="project-item">
