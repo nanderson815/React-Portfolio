@@ -32,6 +32,8 @@ Faces are detected with SCRFD and embedded with ArcFace, both from InsightFace's
 person's faces land close together. Clustering groups a person's photos without
 labelling, and naming a cluster names every photo in it.
 
+![Snapshots gathered into three loose groups, one group per person](/content/projects/images/nas-clusters.svg)
+
 The first implementation used facenet-pytorch, which dates from 2016-17 and was
 trained on adult celebrities. It handled profiles, ageing, poor light, film
 scans, and children badly enough that tuning the threshold traded duplicate
