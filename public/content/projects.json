@@ -2,8 +2,13 @@
   "projects": [
     {
       "title": "NAS Photo Browser",
-      "description": "A self-hosted photo library for 22,700 files on a NAS, built to be used from a phone. Faces are clustered with ArcFace so people can be named once and found everywhere, and CLIP embeddings make the library searchable in plain language.",
+      "description": "A self-hosted photo library for 22,700 files on a NAS. Faces are clustered with ArcFace to group people without labelling, and CLIP embeddings allow searching by description.",
       "slug": "nas-photo-browser"
+    },
+    {
+      "title": "Frame Art",
+      "description": "Public-domain museum art on a Samsung Frame TV, selected to match the room. Claude analyses a photo of the wall; a local weighted scorer ranks individual artworks.",
+      "slug": "frame-art"
     }
   ]
 }
