@@ -4,6 +4,11 @@
       "title": "NAS Photo Browser",
       "description": "A self-hosted photo library for 22,700 files on a NAS, built to be used from a phone. Faces are clustered with ArcFace so people can be named once and found everywhere, and CLIP embeddings make the library searchable in plain language.",
       "slug": "nas-photo-browser"
+    },
+    {
+      "title": "Frame Art",
+      "description": "Public-domain museum art on a Samsung Frame TV, matched to the room it hangs in. Claude reads a photo of the wall once; a local weighted scorer handles every artwork after that, so browsing stays instant and free.",
+      "slug": "frame-art"
     }
   ]
 }
