@@ -1,3 +1,9 @@
 {
-  "projects": null
+  "projects": [
+    {
+      "title": "NAS Photo Browser",
+      "description": "A self-hosted photo library for 22,700 files on a NAS, built to be used from a phone. Faces are clustered with ArcFace so people can be named once and found everywhere, and CLIP embeddings make the library searchable in plain language.",
+      "slug": "nas-photo-browser"
+    }
+  ]
 }
