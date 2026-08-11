@@ -1,51 +1,45 @@
 # NAS Photo Browser
 
-A self-hosted photo library for a NAS, built to be used from a phone.
+A self-hosted photo library for a NAS, used from a phone.
 
 ## The problem
 
 Twenty years of family photos had accumulated on a NAS: 22,700 files across 975
-folders, about 132 GB, dated 1990 through 2026. All of it was reachable over SMB
-and none of it was browsable. Finding one picture meant opening folders by name
-on a laptop and guessing.
+folders, about 132 GB, dated 1990 through 2026. The files were reachable over
+SMB but there was no way to browse them. Finding a photo meant opening folders
+by name on a laptop.
 
-Cloud services solve this by taking custody of the files. I wanted the library to
-stay where it was and get a good interface on top of it.
+Cloud services solve this by taking custody of the files. I wanted to leave the
+library where it was and put an interface on top of it.
 
 ## What it does
 
 The server mounts the share read-only, walks it in the background, and builds an
-index in SQLite: EXIF, GPS, camera, dimensions, and hashes for spotting
-duplicates. Thumbnails are generated once as WebP in two sizes, 300px for the
+index in SQLite: EXIF, GPS, camera, dimensions, and hashes for duplicate
+detection. Thumbnails are generated once as WebP in two sizes, 300px for the
 grid and 1600px for the viewer, and cached on disk.
 
-On top of that index sit a date-grouped grid with a timeline scrubber, albums
-derived from the folder structure, a map for the 20% of photos carrying GPS, a
+On top of the index sit a date-grouped grid with a timeline scrubber, albums
+derived from the folder structure, a map for the 20% of photos with GPS, a
 full-screen viewer with pinch-to-zoom, and duplicate detection. Videos get an
-extracted frame for their thumbnail and transcoding for the formats browsers
-refuse to play. It installs as a PWA and caches thumbnails cache-first, so
-scrolling stays smooth on a phone over LAN.
+extracted frame for a thumbnail and transcoding for formats browsers will not
+play. It installs as a PWA and caches thumbnails cache-first.
 
 ## Finding people
 
-The part worth writing about is face recognition, because the first version of it
-did not work well enough to use.
-
 Faces are detected with SCRFD and embedded with ArcFace, both from InsightFace's
-`buffalo_l` pack. Each face becomes a 512-dimensional vector positioned so that
-the same person's faces land near each other. Clustering those vectors groups a
-person's photos with no labelling, and naming a cluster once names every photo in
-it.
+`buffalo_l` pack. Each face becomes a 512-dimensional vector where the same
+person's faces land close together. Clustering groups a person's photos without
+labelling, and naming a cluster names every photo in it.
 
-The first implementation used facenet-pytorch, which is from 2016-17 and trained
-on adult celebrities. A family library is mostly not that. It is profiles,
-ageing, bad light, film scans, and children, and facenet handled those badly
-enough that tuning the threshold only ever traded duplicate groups for merged
-blobs.
+The first implementation used facenet-pytorch, which dates from 2016-17 and was
+trained on adult celebrities. It handled profiles, ageing, poor light, film
+scans, and children badly enough that tuning the threshold traded duplicate
+groups for merged ones.
 
-To find out whether swapping models actually helped, I scored both on 2,000
-photos from the library, using pairs of faces appearing in the same photo as
-known negatives, since one person cannot be two faces in one frame:
+To measure whether changing models helped, I scored both on 2,000 photos from
+the library, using pairs of faces appearing in the same photo as known
+negatives:
 
 ```
                    faces/group   errors   false-merge rate
@@ -56,38 +50,35 @@ known negatives, since one person cannot be two faces in one frame:
 Four times fewer errors at the same consolidation, or 47% more consolidation at
 the same error rate.
 
-The number that explained why is the headroom between the two classes. Measuring
-the 1st percentile of definitely-different distances against the operating
-threshold: 0.353 against 0.30 for facenet, 0.649 against 0.45 for ArcFace.
-facenet left almost no gap between "same person" and "different person", so no
-threshold was ever going to be right.
+The headroom between the two classes explains the difference. Measuring the 1st
+percentile of definitely-different distances against the operating threshold:
+0.353 against 0.30 for facenet, 0.649 against 0.45 for ArcFace. facenet left
+little separation between same-person and different-person distances.
 
 Two things mattered as much as the model:
 
 - Alignment. ArcFace expects each face warped onto a canonical 112x112 using the
-  five landmarks from the detector. A plain crop gives up much of the benefit.
+  detector's five landmarks. A plain crop loses much of the gain.
 - Filtering. Unfiltered, the detector returns 64% more faces, but a third are
-  tiny or low-confidence people in the background, and those are where false
-  merges come from. Requiring 0.60 confidence and 40 pixels cut errors from 5 to
-  1 while keeping 68% of detections.
+  small or low-confidence background people, which is where false merges come
+  from. Requiring 0.60 confidence and 40 pixels cut errors from 5 to 1 while
+  keeping 68% of detections.
 
-## Searching by description
+## Search by description
 
-CLIP embeddings, via `open_clip`, let the library be searched in plain language
-rather than by filename or date. Both this and face recognition are optional; if
-the ML dependencies are not installed the app runs without those features instead
-of failing to start.
+CLIP embeddings, via `open_clip`, allow searching the library in plain language
+rather than by filename or date. Face recognition and semantic search are both
+optional; without the ML dependencies installed the app runs without them.
 
-## What the data turned out to be
+## Auditing the library first
 
-Auditing the library before building against it changed what got built. 26% of
-photos were dated exactly January 1, because their dates had been inferred from
-folder names and then presented as though they were exact. 1,399 files were
-redundant copies. 975 folders were being rendered as one flat, unnavigable grid.
-Each of those is a feature that only exists because the data was measured first.
+Measuring the library before building against it changed what got built. 26% of
+photos were dated exactly January 1, because dates had been inferred from folder
+names and stored as though they were exact. 1,399 files were redundant copies.
+975 folders were being rendered as a single flat grid.
 
 ## Stack
 
-Python 3.12 with FastAPI and SQLite via aiosqlite on the backend, Pillow for
-imaging, OpenCV for face processing. React 18, TypeScript, Vite, Tailwind, and
-SWR on the frontend. Runs under Docker or directly, on a machine on the LAN.
+Python 3.12 with FastAPI and SQLite via aiosqlite, Pillow for imaging, OpenCV
+for face processing. React 18, TypeScript, Vite, Tailwind, and SWR on the
+frontend. Runs under Docker or directly.

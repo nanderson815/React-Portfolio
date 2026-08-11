@@ -1,47 +1,42 @@
 # Frame Art
 
-Museum art on a Samsung Frame TV, curated for the room it hangs in.
+Museum art on a Samsung Frame TV, selected to match the room.
 
 ## The problem
 
-The Frame is a television that pretends to be a painting when you are not
-watching it. Samsung sells the art for it through a subscription, about six
-dollars a month, on top of the cost of the set.
+The Samsung Frame displays artwork when the TV is idle. Samsung sells that
+artwork through a subscription of about six dollars a month.
 
-Meanwhile the Art Institute of Chicago, the Met, the Rijksmuseum, and the
-Smithsonian all publish their public-domain collections through open APIs, at
-full resolution, for free. The art was never the hard part. Choosing which
-pieces belong on a particular wall is.
+The Art Institute of Chicago, the Met, the Rijksmuseum, and the Smithsonian
+publish their public-domain collections through open APIs, at full resolution,
+for free. The harder problem is deciding which pieces suit a particular wall.
 
 ## What it does
 
-A React Native app talks to a small Python service running on the same network.
-The service searches the four museum collections, scores results against what
-you have liked before and what your room looks like, and pushes the ones you
-pick to the TV over its WebSocket art API, matte and all.
+A React Native app talks to a Python service on the same network. The service
+searches the four museum collections, scores results against previous likes and
+a profile of the room, and pushes selected pieces to the TV over its WebSocket
+art API, including matte settings.
 
-Nothing runs in the cloud. There is no account and no server of mine in the
-middle.
+Everything runs on the LAN. There is no account and no hosted server.
 
 ## Matching art to a room
 
-You photograph the wall. Claude reads the photo and returns a structured
-assessment: wall color as hex, lighting, interior style, dominant palette, mood,
-and which art styles and palettes would complement it. That becomes a room
-profile the rest of the system scores against.
+You photograph the wall. Claude returns a structured assessment of the photo:
+wall color as hex, lighting, interior style, dominant palette, mood, and which
+art styles and palettes would complement it. That becomes a room profile used
+for scoring.
 
-That call is slow and costs money, so it happens once per room rather than once
-per artwork.
+The call is slow and metered, so it runs once per room rather than once per
+artwork.
 
-## Why most of it never calls Claude
+## Local scoring
 
-The browsing feed shows a match percentage on every card. Doing that through an
-API would mean a request per artwork, which is both too slow to scroll and
-absurd to pay for.
+The browsing feed shows a match percentage on every card, which through the API
+would mean one request per artwork.
 
-So scoring is split in two. Claude handles the infrequent, genuinely hard
-judgment: reading a room, assembling a themed collection. Everything per-item
-runs locally as a weighted sum:
+Scoring is therefore split. Claude handles room analysis and assembling themed
+collections. The per-artwork score is a local weighted sum:
 
 ```
     artist match     0.25
@@ -52,44 +47,37 @@ runs locally as a weighted sum:
     room match       0.10
 ```
 
-Each component degrades to a neutral 0.5 rather than zero when there is nothing
-to go on, so a new user with no history gets a middling score instead of a
-uniformly bad one. Keyword matching is implicit: the more often a tag shows up
-in art you liked, the more it counts, normalized against how much history exists
-rather than against a fixed threshold.
-
-The result is that swiping is instant and free, and the expensive model is
-reserved for the two places where it is actually better than arithmetic.
+Each component falls back to 0.5 rather than 0 when there is no data, so a new
+user with no history gets a mid-range score rather than a low one. Keyword
+matching is implicit: tags that appear often in liked art count for more,
+normalized against the amount of history rather than a fixed threshold.
 
 ## Color
 
 Palette extraction runs KMeans over the pixels of a 150x150 thumbnail and
-returns the five cluster centers ordered by cluster size, so the dominant color
-comes first.
+returns five cluster centers ordered by cluster size.
 
-Harmony between two palettes is scored in HSV using color theory rather than
-distance. Complementary hues, roughly 180 degrees apart, and analogous hues
-within 30 degrees both score well. Hues around 60 and 120 degrees apart clash.
-Colors with very low saturation are treated as compatible with everything, which
-is the correct answer for the grays and creams most walls actually are. Every
-cross-pair is scored and weighted by how dominant each color is in its palette.
+Harmony between two palettes is scored in HSV. Complementary hues near 180
+degrees apart and analogous hues within 30 degrees score highest; hues near 60
+and 120 degrees apart score lowest. Colors with very low saturation are treated
+as compatible with anything, which covers most wall colors. Every cross-pair is
+scored and weighted by each color's dominance in its palette.
 
-Matte color is a related but different problem. The right matte is analogous to
-the wall in hue but separated from it in lightness, because a matte that matches
-the wall too closely stops reading as a frame at all.
+Matte selection uses a different rule: a hue analogous to the wall, separated in
+lightness so the matte stays visible against it.
 
 ## Talking to the TV
 
-Connection, upload, matte configuration, selecting the active piece, deleting,
-and slideshow scheduling all go over the Frame's WebSocket art API. The
-integration is optional and lazily imported, so the backend and its 40 tests run
-fine on a machine with no television attached.
+Connection, upload, matte configuration, selecting the active piece, deletion,
+and slideshow scheduling go over the Frame's WebSocket art API. The integration
+is optional and lazily imported, so the backend and its 40 tests run without a
+TV present.
 
 A scheduler rotates art by season and time of day, producing search keywords and
-matte recommendations that feed back into the same scoring path.
+matte recommendations that feed back into scoring.
 
 ## Stack
 
 Python with FastAPI and Pydantic, scikit-learn and Pillow for the color work,
 the Anthropic SDK for curation. React Native on Expo with react-query and
-zustand. Runs on a machine on the LAN.
+zustand.
