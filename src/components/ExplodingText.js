@@ -14,7 +14,8 @@ function ExplodingText({ text, phase, baseDelay = 0 }) {
     }));
   }, [text, baseDelay]);
 
-  // Capture transforms synchronously before browser paints
+  // Must read the mid-animation transforms before the browser paints the
+  // settle frame, otherwise the letters snap to origin instead of easing back.
   useLayoutEffect(() => {
     if (phase === 'settle') {
       const transforms = {};
@@ -33,16 +34,14 @@ function ExplodingText({ text, phase, baseDelay = 0 }) {
   return (
     <>
       {letters.map((letter, i) => {
-        // Determine inline transform based on phase
         let inlineTransform = {};
         if (phase === 'settle' && frozenTransforms[i]) {
           inlineTransform = { transform: frozenTransforms[i] };
         } else if (phase === 'return') {
-          // Transition TO origin - CSS transition will animate from frozen position
           inlineTransform = { transform: 'translate(0px, 0px) rotate(0deg)' };
         }
 
-        // Keep dancing until we have frozen transforms
+        // Keep dancing until the frozen transform for this letter is captured.
         let effectivePhase = phase;
         if (phase === 'settle' && !frozenTransforms[i]) {
           effectivePhase = 'dance';
