@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import ExplodingText from '../components/ExplodingText';
-import { useEasterEgg } from '../hooks/useEasterEgg';
+import { useKonamiCode } from '../hooks/useKonamiCode';
 import { useExplosion } from '../hooks/useExplosion';
 
 function Home() {
-  useEasterEgg();
-  const { phase } = useExplosion();
+  const { phase, triggerExplosion } = useExplosion();
+  useKonamiCode(triggerExplosion);
 
   const separatorStyle = useMemo(() => ({
     '--x': `${(Math.random() - 0.5) * 400}px`,

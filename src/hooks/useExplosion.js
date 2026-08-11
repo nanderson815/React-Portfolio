@@ -1,8 +1,19 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+
+const TIMELINE = [
+  { phase: 'dance', at: 600 },
+  { phase: 'settle', at: 2800 },
+  { phase: 'return', at: 3000 },
+  { phase: 'idle', at: 3800 },
+];
+
+const BURST_WINDOW = 500;
+const BURST_COUNT = 3;
 
 export function useExplosion() {
   const [isExploding, setIsExploding] = useState(false);
   const [phase, setPhase] = useState('idle');
+  const timeoutsRef = useRef([]);
 
   const triggerExplosion = useCallback(() => {
     if (isExploding) return;
@@ -10,52 +21,40 @@ export function useExplosion() {
     setIsExploding(true);
     setPhase('explode');
 
-    // Explode -> Dance
-    setTimeout(() => setPhase('dance'), 600);
-
-    // Dance -> Settle (freeze in place)
-    setTimeout(() => setPhase('settle'), 2800);
-
-    // Settle -> Return (smooth transition home)
-    setTimeout(() => setPhase('return'), 3000);
-
-    // Return -> Idle
-    setTimeout(() => {
-      setPhase('idle');
-      setIsExploding(false);
-    }, 3800);
+    timeoutsRef.current = TIMELINE.map(({ phase: next, at }) =>
+      setTimeout(() => {
+        setPhase(next);
+        if (next === 'idle') setIsExploding(false);
+      }, at)
+    );
   }, [isExploding]);
+
+  useEffect(() => () => timeoutsRef.current.forEach(clearTimeout), []);
 
   useEffect(() => {
     let clickTimes = [];
     let spaceTimes = [];
-    const threshold = 500;
-    const requiredCount = 3;
 
-    const checkTrigger = (times) => {
+    const isBurst = (times) => {
       const now = Date.now();
-      const recent = times.filter(t => now - t < threshold);
-      return recent.length >= requiredCount;
+      return times.filter(t => now - t < BURST_WINDOW).length >= BURST_COUNT;
     };
 
     const handleClick = () => {
-      clickTimes.push(Date.now());
-      clickTimes = clickTimes.slice(-requiredCount);
-      if (checkTrigger(clickTimes)) {
+      clickTimes = [...clickTimes, Date.now()].slice(-BURST_COUNT);
+      if (isBurst(clickTimes)) {
         triggerExplosion();
         clickTimes = [];
       }
     };
 
     const handleKeyDown = (e) => {
-      if (e.code === 'Space') {
-        e.preventDefault();
-        spaceTimes.push(Date.now());
-        spaceTimes = spaceTimes.slice(-requiredCount);
-        if (checkTrigger(spaceTimes)) {
-          triggerExplosion();
-          spaceTimes = [];
-        }
+      if (e.code !== 'Space') return;
+      e.preventDefault();
+      spaceTimes = [...spaceTimes, Date.now()].slice(-BURST_COUNT);
+      if (isBurst(spaceTimes)) {
+        triggerExplosion();
+        spaceTimes = [];
       }
     };
 
@@ -68,5 +67,5 @@ export function useExplosion() {
     };
   }, [triggerExplosion]);
 
-  return { isExploding, phase };
+  return { isExploding, phase, triggerExplosion };
 }
