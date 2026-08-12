@@ -27,6 +27,19 @@ const MIN_PLATFORM = 36;
 const REACH = 190;
 const ROW_PADDING = 26;  // clear space between two platforms sharing a row
 
+// The climber, built out of type like everything else on the page. Arms go up
+// on the way up and down on the way down, which is the whole animation.
+// Rows are centred individually, so a two-character row of tucked legs still
+// lines up under the body.
+const FIGURE = {
+  rise: ['\\o/', ' | ', '/\\'],
+  apex: [' o ', '/|\\', '/ \\'],
+  fall: ['/o\\', ' | ', '/ \\'],
+};
+const FIGURE_SIZE = 13;
+const FIGURE_LINE = 10;  // tighter than the font's own leading
+const LEAN = 0.1;
+
 const SCATTER_MS = 760;
 const HOLD_MS = 950;
 const RETURN_MS = 900;
@@ -258,16 +271,28 @@ export function startWordJump(words, options) {
   }
 
   function drawPlayer() {
-    // A little squash and stretch reads as weight without a sprite.
-    const stretch = Math.max(-0.32, Math.min(0.32, player.vy / 46));
-    const w = PLAYER * (1 - stretch);
-    const h = PLAYER * (1 + stretch);
+    // He is drawn a little larger than the box he collides with, which is
+    // both easier to see and more forgiving to land.
+    const frame = player.vy < -1.5 ? FIGURE.rise
+      : player.vy > 1.5 ? FIGURE.fall
+        : FIGURE.apex;
+    const squash = Math.max(-0.14, Math.min(0.14, player.vy / 90));
+    const lean = player.vx === 0 ? 0 : (player.vx > 0 ? LEAN : -LEAN);
+
+    ctx.save();
+    ctx.translate(player.x + PLAYER / 2, player.y - camera + PLAYER);
+    ctx.rotate(lean);
+    ctx.scale(1 - squash, 1 + squash);
+    ctx.font = `600 ${FIGURE_SIZE}px "JetBrains Mono", monospace`;
     ctx.fillStyle = ink;
-    ctx.fillRect(
-      player.x + (PLAYER - w) / 2,
-      player.y - camera + (PLAYER - h),
-      w, h
-    );
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    for (let i = 0; i < frame.length; i++) {
+      ctx.fillText(frame[i], 0, -(frame.length - 1 - i) * FIGURE_LINE);
+    }
+    ctx.restore();
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
   }
 
   function drawHud() {
