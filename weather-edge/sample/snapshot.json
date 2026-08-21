@@ -1,0 +1,29 @@
+{
+  "note": "SYNTHETIC demo data shaped like real Kalshi/NWS responses — verifies the pipeline math offline. Never trade on this.",
+  "eventsBySeries": {
+    "KXHIGHNY": [
+      {
+        "event_ticker": "KXHIGHNY-26AUG22",
+        "title": "Highest temperature in NYC on Aug 22, 2026?",
+        "markets": [
+          { "ticker": "KXHIGHNY-26AUG22-T78", "yes_sub_title": "77 or below", "cap_strike": 77, "yes_bid": 1, "yes_ask": 3 },
+          { "ticker": "KXHIGHNY-26AUG22-B79", "yes_sub_title": "78 to 79", "floor_strike": 78, "cap_strike": 79, "yes_bid": 4, "yes_ask": 7 },
+          { "ticker": "KXHIGHNY-26AUG22-B81", "yes_sub_title": "80 to 81", "floor_strike": 80, "cap_strike": 81, "yes_bid": 14, "yes_ask": 18 },
+          { "ticker": "KXHIGHNY-26AUG22-B83", "yes_sub_title": "82 to 83", "floor_strike": 82, "cap_strike": 83, "yes_bid": 27, "yes_ask": 31 },
+          { "ticker": "KXHIGHNY-26AUG22-B85", "yes_sub_title": "84 to 85", "floor_strike": 84, "cap_strike": 85, "yes_bid": 20, "yes_ask": 24 },
+          { "ticker": "KXHIGHNY-26AUG22-B87", "yes_sub_title": "86 to 87", "floor_strike": 86, "cap_strike": 87, "yes_bid": 3, "yes_ask": 6 },
+          { "ticker": "KXHIGHNY-26AUG22-T88", "yes_sub_title": "88 or above", "floor_strike": 88, "yes_bid": 1, "yes_ask": 2 }
+        ]
+      }
+    ]
+  },
+  "forecastBySeries": {
+    "KXHIGHNY": [
+      { "startTime": "2026-08-22T10:00:00-04:00", "temperature": 79 },
+      { "startTime": "2026-08-22T12:00:00-04:00", "temperature": 82 },
+      { "startTime": "2026-08-22T14:00:00-04:00", "temperature": 84 },
+      { "startTime": "2026-08-22T15:00:00-04:00", "temperature": 83 },
+      { "startTime": "2026-08-22T17:00:00-04:00", "temperature": 81 }
+    ]
+  }
+}
